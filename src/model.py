@@ -32,7 +32,8 @@ class Cate_predict_loss(nn.Module):
         self.cate_pred_layer = nn.Linear(self.hidden_size, self.num_groups, bias=False)
 
         # criterion
-        self.adverse_criterion = nn.BCEWithLogitsLoss()
+        # self.adverse_criterion = nn.BCEWithLogitsLoss()
+        self.adverse_criterion = nn.CrossEntropyLoss()
 
     def forward(self, in_emb, cate_dist, is_inverse):
         if is_inverse == 1:
